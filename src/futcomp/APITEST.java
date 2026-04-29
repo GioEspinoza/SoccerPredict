@@ -14,6 +14,7 @@ import java.net.http.HttpResponse;
 
 //Represents the response from the server requested for.
 import java.net.http.HttpRequest;
+import java.util.Scanner;
 
 /**
  *
@@ -21,8 +22,37 @@ import java.net.http.HttpRequest;
  */
 public class APITEST {
     
+    // IOException is for network failure, BAD Urls, and servers not responding
+    //InterruptedException is when thread is stopped while waiting
+    // where we do client.send the block is waiting for a response and if something interrupts Java will throw this
     public static void main(String[] args) throws IOException, InterruptedException {
-        String teamName = "Peru";
+        Scanner input = new Scanner(System.in);
+        String choice;
+        System.out.println("Select a team (1-3)");
+        System.out.println("""
+                           1. Peru
+                           2. Argentna
+                           3. Spain
+                           """);
+        
+        int teamName = input.nextInt();
+        if(teamName == 1){
+            choice = "Peru";
+        }
+        else if(teamName == 2){
+            choice = "Argentina";
+        }
+        else{
+            choice = "Spain";
+        }
+        
+        APIClass API = new APIClass();
+        
+        
+        String data = API.getTeamJson(choice);
+        
+        System.out.println(data);
+
         
         //API Endpoint with quey parameter
         //t=Peru -> tells api what team to look for
@@ -37,6 +67,7 @@ public class APITEST {
         //build will finalize the request
         
         //send request and wait
+        //Bodyhandlers.ofString tells java that when the server does repsonse, it will give the body as a string
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         
         //body will equal the actual json data we get back from API
