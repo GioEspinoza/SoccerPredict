@@ -55,7 +55,7 @@ public class StatsCalc {
         return rating;
     }
     
-    public String predict(TeamClass team1, TeamStats stats1, TeamClass team2, TeamStats stats2){
+    public String predict(Team team1, TeamStats stats1, Team team2, TeamStats stats2){
         String team1Name = team1.getTeamName();
         String team2Name = team2.getTeamName();
         

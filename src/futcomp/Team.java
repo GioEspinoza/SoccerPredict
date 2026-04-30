@@ -8,13 +8,13 @@ package futcomp;
  *
  * @author gio
  */
-public class TeamClass {
+public class Team {
     private String teamName;
     private String shortName;
     private String stadium;
     private String teamID;
     
-    public TeamClass(String teamName, String shortName, String stadium, String teamID){
+    public Team(String teamName, String shortName, String stadium, String teamID){
         this.teamName = teamName;
         this.shortName = shortName;
         this.stadium = stadium;
@@ -36,32 +36,5 @@ public class TeamClass {
     public String getTeamID() {
         return teamID;
     }
-    
-}
-
-class TeamStats {
-    private int teamScore;
-    private int otherScore;
-    private String recentGameDate;
-
-    public TeamStats(int teamScore, int otherScore, String recentGameDate){
-        this.teamScore = teamScore;
-        this.otherScore = otherScore;
-        this.recentGameDate = recentGameDate;
-        
-    }
-
-    public int getTeamScore() {
-        return teamScore;
-    }
-
-    public int getOtherScore() {
-        return otherScore;
-    }
-
-    public String getRecentGameDate() {
-        return recentGameDate;
-    }
-    
     
 }

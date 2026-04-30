@@ -70,8 +70,8 @@ public class APITEST {
         
 
         //set up team data for basic team profile data used for gui
-        TeamClass teamData1 = parse.teamData(teamJson1);
-        TeamClass teamData2 = parse.teamData(teamJson2);
+        Team teamData1 = parse.teamData(teamJson1);
+        Team teamData2 = parse.teamData(teamJson2);
       
         
         //hold the last game json data in a string

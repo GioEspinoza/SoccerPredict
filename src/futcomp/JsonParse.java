@@ -7,7 +7,7 @@ import org.json.JSONObject; //needed to make object that will parse json data
 import org.json.JSONArray; //will create the json array with data
 
 public class JsonParse {
-    public TeamClass teamData(String jsonData) {
+    public Team teamData(String jsonData) {
         JSONObject parse = new JSONObject(jsonData); //makes jsondata into json object named parse
         JSONArray teams = parse.getJSONArray("teams"); //assigns parse as an array
         JSONObject team = teams.getJSONObject(0); //assigsn team as first index of the json array
@@ -17,7 +17,7 @@ public class JsonParse {
         String stadium = team.getString("strStadium");
         String teamID = team.getString("idTeam");
         
-        return new TeamClass(teamName, shortName, stadium, teamID);
+        return new Team(teamName, shortName, stadium, teamID);
         
     }
    
