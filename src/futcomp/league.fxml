@@ -10,7 +10,7 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="950.0" spacing="30.0" style="-fx-background-color: #ACC2D9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="futcomp.LeagueController">   <children>
       <Label alignment="TOP_CENTER" style="-fx-text-fill: #475569; -fx-font-size: 30px; -fx-font-weight: bold;" text="League Match Predictor" />
-      <VBox prefHeight="200.0" prefWidth="850.0" spacing="30.0">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="850.0" spacing="20.0">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="850.0" spacing="60.0">
                <children>

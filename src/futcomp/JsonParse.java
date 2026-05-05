@@ -16,8 +16,9 @@ public class JsonParse {
         String teamName = team.getString("strTeam");
         String stadium = team.getString("strStadium");
         String teamID = team.getString("idTeam");
+        String badgeUrl = team.getString("strBadge");
         
-        return new Team(teamName, shortName, stadium, teamID);
+        return new Team(teamName, shortName, stadium, teamID, badgeUrl);
         
     }
    
