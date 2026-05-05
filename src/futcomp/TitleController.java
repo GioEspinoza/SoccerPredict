@@ -16,9 +16,17 @@ import javafx.stage.Stage;
 public class TitleController {
 
     @FXML
-    private void handleEnter(ActionEvent event) throws IOException {
+    private void handleLeague(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("league.fxml"));
 
-        Parent root = FXMLLoader.load(getClass().getResource("predictgui.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void handleInternational(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("international.fxml"));
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));

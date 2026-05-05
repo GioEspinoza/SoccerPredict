@@ -40,5 +40,22 @@ public class APIClass {
         return response.body();
     
     }
+
+    public String getTeamJsonByID(String teamID) throws IOException, InterruptedException {
+
+        String url = "https://www.thesportsdb.com/api/v1/json/123/lookupteam.php?id=" + teamID;
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        return response.body();
+
+    }
     
 }

@@ -5,11 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: white; -fx-text-fill: white; -fx-font-size: 20px; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="futcomp.TitleController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: #ACC2D9; -fx-text-fill: white; -fx-font-size: 20px; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="futcomp.TitleController">
    <children>
       <Label style="-fx-text-fill: #475569; -fx-font-size: 38px; -fx-font-weight: bold;" styleClass="title" text="FutComp" />
-      <Label style="-fx-text-fill: #475569; -fx-font-size: 26px;" styleClass="subtitle" text="Get Ahead of the Game" />
-      <Button mnemonicParsing="false" onAction="#handleEnter" style="-fx-background-color: #1e3a8a; -fx-text-fill: white; -fx-font-size: 20px; -fx-background-radius: 10;" text="Enter" />
+      <Label style="-fx-text-fill: #475569; -fx-font-size: 26px;" styleClass="subtitle" text="Football Match Predictor" />
+      <Button fx:id="leagueButton" mnemonicParsing="false" onAction="#handleLeague" style="-fx-background-color: #1e3a8a; -fx-text-fill: white; -fx-font-size: 20px; -fx-background-radius: 10;" text="League" />
+      <Button fx:id="internationalButton" layoutX="363.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleInternational" style="-fx-background-color: #1e3a8a; -fx-text-fill: white; -fx-font-size: 20px; -fx-background-radius: 10;" text="International" />
    </children>
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="10.0" />
