@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -83,30 +84,74 @@ public class LeagueController {
         stage.show();
     }
 
-    private void updateTeamOneInfo() {
-        resetPredictionText();
-        updateTeamInfo(teamOneBox.getValue(), teamOneShortNameLabel, teamOneStadiumLabel);
-    }
-
-    private void updateTeamTwoInfo() {
-        resetPredictionText();
-        updateTeamInfo(teamTwoBox.getValue(), teamTwoShortNameLabel, teamTwoStadiumLabel);
-    }
-
-    private void updateTeamInfo(String teamName, Label shortNameLabel, Label stadiumLabel) {
+    private void updateTeamInfo(String teamName, Label shortNameLabel, Label stadiumLabel, ImageView badgeView) {
         if (teamName == null) {
             shortNameLabel.setText("Short Name: ");
             stadiumLabel.setText("Stadium: ");
+            badgeView.setImage(null);
         }
         else {
             shortNameLabel.setText("Short Name: " + getShortName(teamName));
             stadiumLabel.setText("Stadium: " + getStadium(teamName));
+            loadTeamBadge(teamName, badgeView);
         }
     }
 
+    private void loadTeamBadge(String teamName, ImageView badgeView) {
+        badgeView.setImage(null);
+        String badgeUrl = getBadgeUrl(teamName);
+
+        if (!badgeUrl.equals("")) {
+            Image badge = new Image(badgeUrl);
+            badgeView.setImage(badge);
+        }
+
+        /*
+        TheSportsDB test key returns Arsenal badge data for every team,
+        so the API badge lookup is disabled and hard-coded URLs are used.
+
+        Thread badgeThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Team team = getTeamData(teamName);
+                    Image badge = new Image(team.getBadgeUrl());
+
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            badgeView.setImage(badge);
+                        }
+                    });
+                }
+                catch (Exception error) {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            badgeView.setImage(null);
+                        }
+                    });
+                }
+            }
+        });
+
+        badgeThread.start();
+        */
+    }
+    
+    private void updateTeamOneInfo() {
+        resetPredictionText();
+        updateTeamInfo(teamOneBox.getValue(), teamOneShortNameLabel, teamOneStadiumLabel, teamOneBadge);
+    }
+
+    private void updateTeamTwoInfo() {
+        resetPredictionText();
+        updateTeamInfo(teamTwoBox.getValue(), teamTwoShortNameLabel, teamTwoStadiumLabel, teamTwoBadge);
+    }
+
     /*
-    TheSportsDB test key was returning Arsenal for lookupteam.php even when
-    the selected team ID was different, so this API label lookup is disabled.
+    TheSportsDB test key was returning Arsenal for lookupteam even when
+    the selected team was different, so this API function is disabled.
     private void loadTeamInfo(String teamName, Label shortNameLabel, Label stadiumLabel) {
         Thread infoThread = new Thread(new Runnable() {
             @Override
@@ -198,6 +243,7 @@ public class LeagueController {
         loadTeamsForLeague(leagueOneBox.getValue(), teamOneBox);
         teamOneShortNameLabel.setText("Short Name: ");
         teamOneStadiumLabel.setText("Stadium: ");
+        teamOneBadge.setImage(null);
         resetPredictionText();
     }
 
@@ -205,6 +251,7 @@ public class LeagueController {
         loadTeamsForLeague(leagueTwoBox.getValue(), teamTwoBox);
         teamTwoShortNameLabel.setText("Short Name: ");
         teamTwoStadiumLabel.setText("Stadium: ");
+        teamTwoBadge.setImage(null);
         resetPredictionText();
     }
 
@@ -220,7 +267,7 @@ public class LeagueController {
             teamBox.getItems().addAll("Arsenal", "Liverpool", "Manchester City", "Manchester United", "Chelsea");
         }
         else if (league.equals("Spanish La Liga")) {
-            teamBox.getItems().addAll("Barcelona", "Real Madrid", "Atletico Madrid", "Villarreal", "Real Betis");
+            teamBox.getItems().addAll("FC Barcelona", "Real Madrid", "Atletico Madrid", "Villarreal", "Real Betis");
         }
         else if (league.equals("Italian Serie A")) {
             teamBox.getItems().addAll("Inter Milan", "AC Milan", "Juventus", "Napoli", "Roma");
@@ -249,7 +296,7 @@ public class LeagueController {
         else if (teamName.equals("Chelsea")) {
             return "133610";
         }
-        else if (teamName.equals("Barcelona")) {
+        else if (teamName.equals("FC Barcelona")) {
             return "133739";
         }
         else if (teamName.equals("Real Madrid")) {
@@ -314,7 +361,6 @@ public class LeagueController {
         }
     }
 
-    /*
     private Team getTeamData(String teamName) throws Exception {
         APIClass API = new APIClass();
         JsonParse parse = new JsonParse();
@@ -323,63 +369,166 @@ public class LeagueController {
 
         return parse.teamData(teamJson);
     }
-    */
 
     private String getShortName(String teamName) {
-        if (teamName.equals("Arsenal")) return "ARS";
-        else if (teamName.equals("Liverpool")) return "LIV";
-        else if (teamName.equals("Manchester City")) return "MCI";
-        else if (teamName.equals("Manchester United")) return "MUN";
-        else if (teamName.equals("Chelsea")) return "CHE";
-        else if (teamName.equals("Barcelona")) return "BAR";
-        else if (teamName.equals("Real Madrid")) return "RMA";
-        else if (teamName.equals("Atletico Madrid")) return "ATM";
-        else if (teamName.equals("Villarreal")) return "VIL";
-        else if (teamName.equals("Real Betis")) return "BET";
-        else if (teamName.equals("Inter Milan")) return "INT";
-        else if (teamName.equals("AC Milan")) return "MIL";
-        else if (teamName.equals("Juventus")) return "JUV";
-        else if (teamName.equals("Napoli")) return "NAP";
-        else if (teamName.equals("Roma")) return "ROM";
-        else if (teamName.equals("Bayern Munich")) return "BAY";
-        else if (teamName.equals("Borussia Dortmund")) return "DOR";
-        else if (teamName.equals("Bayer Leverkusen")) return "LEV";
-        else if (teamName.equals("RB Leipzig")) return "RBL";
-        else if (teamName.equals("Eintracht Frankfurt")) return "SGE";
-        else if (teamName.equals("Paris SG")) return "PSG";
-        else if (teamName.equals("Monaco")) return "ASM";
-        else if (teamName.equals("Marseille")) return "OM";
-        else if (teamName.equals("Lyon")) return "LYO";
-        else if (teamName.equals("Lille")) return "LIL";
+        if (teamName.equals("Arsenal")) 
+            return "ARS";
+        else if (teamName.equals("Liverpool")) 
+            return "LIV";
+        else if (teamName.equals("Manchester City")) 
+            return "MCI";
+        else if (teamName.equals("Manchester United")) 
+            return "MUN";
+        else if (teamName.equals("Chelsea")) 
+            return "CHE";
+        else if (teamName.equals("FC Barcelona")) 
+            return "BAR";
+        else if (teamName.equals("Real Madrid")) 
+            return "RMA";
+        else if (teamName.equals("Atletico Madrid")) 
+            return "ATM";
+        else if (teamName.equals("Villarreal")) 
+            return "VIL";
+        else if (teamName.equals("Real Betis")) 
+            return "BET";
+        else if (teamName.equals("Inter Milan")) 
+            return "INT";
+        else if (teamName.equals("AC Milan")) 
+            return "MIL";
+        else if (teamName.equals("Juventus")) 
+            return "JUV";
+        else if (teamName.equals("Napoli")) 
+            return "NAP";
+        else if (teamName.equals("Roma")) 
+            return "ROM";
+        else if (teamName.equals("Bayern Munich")) 
+            return "BAY";
+        else if (teamName.equals("Borussia Dortmund")) 
+            return "DOR";
+        else if (teamName.equals("Bayer Leverkusen")) 
+            return "LEV";
+        else if (teamName.equals("RB Leipzig")) 
+            return "RBL";
+        else if (teamName.equals("Eintracht Frankfurt")) 
+            return "SGE";
+        else if (teamName.equals("Paris SG")) 
+            return "PSG";
+        else if (teamName.equals("Monaco")) 
+            return "ASM";
+        else if (teamName.equals("Marseille")) 
+            return "OM";
+        else if (teamName.equals("Lyon")) 
+            return "LYO";
+        else if (teamName.equals("Lille")) 
+            return "LIL";
         else return "";
     }
 
     private String getStadium(String teamName) {
-        if (teamName.equals("Arsenal")) return "Emirates Stadium";
-        else if (teamName.equals("Liverpool")) return "Anfield";
-        else if (teamName.equals("Manchester City")) return "Etihad Stadium";
-        else if (teamName.equals("Manchester United")) return "Old Trafford";
-        else if (teamName.equals("Chelsea")) return "Stamford Bridge";
-        else if (teamName.equals("Barcelona")) return "Spotify Camp Nou";
-        else if (teamName.equals("Real Madrid")) return "Santiago Bernabeu";
-        else if (teamName.equals("Atletico Madrid")) return "Metropolitano Stadium";
-        else if (teamName.equals("Villarreal")) return "Estadio de la Ceramica";
-        else if (teamName.equals("Real Betis")) return "Estadio Benito Villamarin";
-        else if (teamName.equals("Inter Milan")) return "San Siro";
-        else if (teamName.equals("AC Milan")) return "San Siro";
-        else if (teamName.equals("Juventus")) return "Allianz Stadium";
-        else if (teamName.equals("Napoli")) return "Stadio Diego Armando Maradona";
-        else if (teamName.equals("Roma")) return "Stadio Olimpico";
-        else if (teamName.equals("Bayern Munich")) return "Allianz Arena";
-        else if (teamName.equals("Borussia Dortmund")) return "Signal Iduna Park";
-        else if (teamName.equals("Bayer Leverkusen")) return "BayArena";
-        else if (teamName.equals("RB Leipzig")) return "Red Bull Arena";
-        else if (teamName.equals("Eintracht Frankfurt")) return "Deutsche Bank Park";
-        else if (teamName.equals("Paris SG")) return "Parc des Princes";
-        else if (teamName.equals("Monaco")) return "Stade Louis II";
-        else if (teamName.equals("Marseille")) return "Orange Velodrome";
-        else if (teamName.equals("Lyon")) return "Groupama Stadium";
-        else if (teamName.equals("Lille")) return "Stade Pierre-Mauroy";
+        if (teamName.equals("Arsenal")) 
+            return "Emirates Stadium";
+        else if (teamName.equals("Liverpool")) 
+            return "Anfield";
+        else if (teamName.equals("Manchester City")) 
+            return "Etihad Stadium";
+        else if (teamName.equals("Manchester United")) 
+            return "Old Trafford";
+        else if (teamName.equals("Chelsea")) 
+                return "Stamford Bridge";
+        else if (teamName.equals("FC Barcelona")) 
+            return "Spotify Camp Nou";
+        else if (teamName.equals("Real Madrid")) 
+            return "Santiago Bernabeu";
+        else if (teamName.equals("Atletico Madrid")) 
+            return "Metropolitano Stadium";
+        else if (teamName.equals("Villarreal")) 
+            return "Estadio de la Ceramica";
+        else if (teamName.equals("Real Betis")) 
+            return "Estadio Benito Villamarin";
+        else if (teamName.equals("Inter Milan")) 
+            return "San Siro";
+        else if (teamName.equals("AC Milan")) 
+            return "San Siro";
+        else if (teamName.equals("Juventus")) 
+            return "Allianz Stadium";
+        else if (teamName.equals("Napoli")) 
+            return "Stadio Diego Armando Maradona";
+        else if (teamName.equals("Roma")) 
+            return "Stadio Olimpico";
+        else if (teamName.equals("Bayern Munich")) 
+            return "Allianz Arena";
+        else if (teamName.equals("Borussia Dortmund")) 
+            return "Signal Iduna Park";
+        else if (teamName.equals("Bayer Leverkusen")) 
+            return "BayArena";
+        else if (teamName.equals("RB Leipzig")) 
+            return "Red Bull Arena";
+        else if (teamName.equals("Eintracht Frankfurt")) 
+            return "Deutsche Bank Park";
+        else if (teamName.equals("Paris SG")) 
+            return "Parc des Princes";
+        else if (teamName.equals("Monaco")) 
+            return "Stade Louis II";
+        else if (teamName.equals("Marseille")) 
+            return "Orange Velodrome";
+        else if (teamName.equals("Lyon")) 
+            return "Groupama Stadium";
+        else if (teamName.equals("Lille")) 
+            return "Stade Pierre-Mauroy";
+        else return "";
+    }
+
+    private String getBadgeUrl(String teamName) {
+        if (teamName.equals("Arsenal"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png";
+        else if (teamName.equals("Liverpool"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/kfaher1737969724.png";
+        else if (teamName.equals("Manchester City"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png";
+        else if (teamName.equals("Manchester United"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/xzqdr11517660252.png";
+        else if (teamName.equals("Chelsea"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/yvwvtu1448813215.png";
+        else if (teamName.equals("FC Barcelona"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/wq9sir1639406443.png";
+        else if (teamName.equals("Real Madrid"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png";
+        else if (teamName.equals("Atletico Madrid"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/0ulh3q1719984315.png";
+        else if (teamName.equals("Villarreal"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/vrypqy1473503073.png";
+        else if (teamName.equals("Real Betis"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/2oqulv1663245386.png";
+        else if (teamName.equals("Inter Milan"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/ryhu6d1617113103.png";
+        else if (teamName.equals("AC Milan"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/wvspur1448806617.png";
+        else if (teamName.equals("Juventus"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/uxf0gr1742983727.png";
+        else if (teamName.equals("Napoli"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/l8qyxv1742982541.png";
+        else if (teamName.equals("Roma"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/jwro2s1760820674.png";
+        else if (teamName.equals("Bayern Munich"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/01ogkh1716960412.png";
+        else if (teamName.equals("Borussia Dortmund"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/tqo8ge1716960353.png";
+        else if (teamName.equals("Bayer Leverkusen"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/3x9k851726760113.png";
+        else if (teamName.equals("RB Leipzig"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/zjgapo1594244951.png";
+        else if (teamName.equals("Eintracht Frankfurt"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/rurwpy1473453269.png";
+        else if (teamName.equals("Paris SG"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/rwqrrq1473504808.png";
+        else if (teamName.equals("Monaco"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/exjf5l1678808044.png";
+        else if (teamName.equals("Marseille"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/uutsyt1473504764.png";
+        else if (teamName.equals("Lyon"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/blk9771656932845.png";
+        else if (teamName.equals("Lille"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/2giize1534005340.png";
         else return "";
     }
 }

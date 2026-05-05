@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -85,23 +86,67 @@ public class InternationalController {
 
     private void updateTeamOneInfo() {
         resetPredictionText();
-        updateTeamInfo(teamOneBox.getValue(), teamOneShortNameLabel, teamOneStadiumLabel);
+        updateTeamInfo(teamOneBox.getValue(), teamOneShortNameLabel, teamOneStadiumLabel, teamOneBadge);
     }
 
     private void updateTeamTwoInfo() {
         resetPredictionText();
-        updateTeamInfo(teamTwoBox.getValue(), teamTwoShortNameLabel, teamTwoStadiumLabel);
+        updateTeamInfo(teamTwoBox.getValue(), teamTwoShortNameLabel, teamTwoStadiumLabel, teamTwoBadge);
     }
 
-    private void updateTeamInfo(String teamName, Label shortNameLabel, Label stadiumLabel) {
+    private void updateTeamInfo(String teamName, Label shortNameLabel, Label stadiumLabel, ImageView badgeView) {
         if (teamName == null) {
             shortNameLabel.setText("Short Name: ");
             stadiumLabel.setText("Stadium: ");
+            badgeView.setImage(null);
         }
         else {
             shortNameLabel.setText("Short Name: " + getShortName(teamName));
             stadiumLabel.setText("Stadium: " + getStadium(teamName));
+            loadTeamBadge(teamName, badgeView);
         }
+    }
+
+    private void loadTeamBadge(String teamName, ImageView badgeView) {
+        badgeView.setImage(null);
+        String badgeUrl = getBadgeUrl(teamName);
+
+        if (!badgeUrl.equals("")) {
+            Image badge = new Image(badgeUrl);
+            badgeView.setImage(badge);
+        }
+
+        /*
+        TheSportsDB test key returns Arsenal badge data for every team,
+        so the API badge lookup is disabled and hardcoded.
+
+        Thread badgeThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Team team = getTeamData(teamName);
+                    Image badge = new Image(team.getBadgeUrl());
+
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            badgeView.setImage(badge);
+                        }
+                    });
+                }
+                catch (Exception error) {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            badgeView.setImage(null);
+                        }
+                    });
+                }
+            }
+        });
+
+        badgeThread.start();
+        */
     }
 
     /*
@@ -194,7 +239,6 @@ public class InternationalController {
         }
     }
 
-    /*
     private Team getTeamData(String teamName) throws Exception {
         APIClass API = new APIClass();
         JsonParse parse = new JsonParse();
@@ -203,7 +247,6 @@ public class InternationalController {
 
         return parse.teamData(teamJson);
     }
-    */
 
     private String getTeamID(String teamName) throws Exception {
         if (teamName.equals("Argentina")) {
@@ -271,6 +314,32 @@ public class InternationalController {
         else if (teamName.equals("Mexico")) return "Estadio Azteca";
         else if (teamName.equals("USA")) return "Various stadiums";
         else if (teamName.equals("Canada")) return "Various stadiums";
+        else return "";
+    }
+
+    private String getBadgeUrl(String teamName) {
+        if (teamName.equals("Argentina"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/3zplhu1726167477.png";
+        else if (teamName.equals("Brazil"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/jl6dip1726167280.png";
+        else if (teamName.equals("England"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/vf5ttc1726166739.png";
+        else if (teamName.equals("France"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/p3n0z51726166851.png";
+        else if (teamName.equals("Germany"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/1xysi51726167152.png";
+        else if (teamName.equals("Italy"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/fxijcp1726167035.png";
+        else if (teamName.equals("Portugal"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/swqvpy1455466083.png";
+        else if (teamName.equals("Spain"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/ncgqyr1726166942.png";
+        else if (teamName.equals("Mexico"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/3rmosi1748525208.png";
+        else if (teamName.equals("USA"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/21f0oi1597948195.png";
+        else if (teamName.equals("Canada"))
+            return "https://r2.thesportsdb.com/images/media/team/badge/2t631f1595154867.png";
         else return "";
     }
 }

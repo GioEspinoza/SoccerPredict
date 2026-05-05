@@ -13,12 +13,18 @@ public class Team {
     private String shortName;
     private String stadium;
     private String teamID;
+    private String badgeUrl;
     
     public Team(String teamName, String shortName, String stadium, String teamID){
+        this(teamName, shortName, stadium, teamID, "");
+        }
+
+    public Team(String teamName, String shortName, String stadium, String teamID, String badgeUrl){
         this.teamName = teamName;
         this.shortName = shortName;
         this.stadium = stadium;
         this.teamID = teamID;
+        this.badgeUrl = badgeUrl;
         }
 
     public String getTeamName() {
@@ -35,6 +41,10 @@ public class Team {
 
     public String getTeamID() {
         return teamID;
+    }
+
+    public String getBadgeUrl() {
+        return badgeUrl;
     }
     
 }
