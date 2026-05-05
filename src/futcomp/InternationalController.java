@@ -150,8 +150,9 @@ public class InternationalController {
     }
 
     /*
-    TheSportsDB test key was returning Arsenal for lookupteam.php even when
-    the selected team ID was different, so this API label lookup is disabled.
+    TheSportsDB test key was returning Arsenal even when
+    the selected team was different, so API function is disabled.
+    
     private void loadTeamInfo(String teamName, Label shortNameLabel, Label stadiumLabel) {
         Thread infoThread = new Thread(new Runnable() {
             @Override
@@ -239,14 +240,14 @@ public class InternationalController {
         }
     }
 
-    private Team getTeamData(String teamName) throws Exception {
-        APIClass API = new APIClass();
-        JsonParse parse = new JsonParse();
+    //private Team getTeamData(String teamName) throws Exception {
+    //    APIClass API = new APIClass();
+    //   JsonParse parse = new JsonParse();
 
-        String teamJson = API.getTeamJsonByID(getTeamID(teamName));
+    //  String teamJson = API.getTeamJsonByID(getTeamID(teamName));
 
-        return parse.teamData(teamJson);
-    }
+    //    return parse.teamData(teamJson);
+    //}
 
     private String getTeamID(String teamName) throws Exception {
         if (teamName.equals("Argentina")) {
