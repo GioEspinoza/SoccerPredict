@@ -75,8 +75,8 @@ public class APITEST {
       
         
         //hold the last game json data in a string
-        String statsJson1 = API.getTeamData(teamData1.getTeamID());
-        String statsJson2 = API.getTeamData(teamData2.getTeamID());
+        String statsJson1 = API.getStatsJson(teamData1.getTeamID());
+        String statsJson2 = API.getStatsJson(teamData2.getTeamID());
        
         
         //set up team stas used for actual calculation and prediciton
