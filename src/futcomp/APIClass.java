@@ -24,7 +24,7 @@ public class APIClass {
         return response.body();
     }    
 
-    public String getTeamData(String teamID) throws IOException, InterruptedException {
+    public String getStatsJson(String teamID) throws IOException, InterruptedException {
         
         String url = "https://www.thesportsdb.com/api/v1/json/123/eventslast.php?id=" + teamID;
         

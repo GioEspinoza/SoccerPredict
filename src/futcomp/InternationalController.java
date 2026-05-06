@@ -224,8 +224,8 @@ public class InternationalController {
         Team teamData1 = new Team(teamOne, "", "", getTeamID(teamOne));
         Team teamData2 = new Team(teamTwo, "", "", getTeamID(teamTwo));
 
-        String statsJson1 = API.getTeamData(teamData1.getTeamID());
-        String statsJson2 = API.getTeamData(teamData2.getTeamID());
+        String statsJson1 = API.getStatsJson(teamData1.getTeamID());
+        String statsJson2 = API.getStatsJson(teamData2.getTeamID());
 
         TeamStats stats1 = parse.teamStatsData(statsJson1, teamData1.getTeamID());
         TeamStats stats2 = parse.teamStatsData(statsJson2, teamData2.getTeamID());
