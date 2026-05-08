@@ -11,13 +11,12 @@ package futcomp;
 public class TeamStats {
     private int teamScore;
     private int otherScore;
-    private String recentGameDate;
+    private String eventId;
 
-    public TeamStats(int teamScore, int otherScore, String recentGameDate){
+    public TeamStats(int teamScore, int otherScore, String eventId){
         this.teamScore = teamScore;
         this.otherScore = otherScore;
-        this.recentGameDate = recentGameDate;
-        
+        this.eventId = eventId;
     }
 
     public int getTeamScore() {
@@ -27,9 +26,10 @@ public class TeamStats {
     public int getOtherScore() {
         return otherScore;
     }
-
-    public String getRecentGameDate() {
-        return recentGameDate;
-    }
     
+    public String getEventId(){
+        return eventId;
+    }
+            
+
 }
