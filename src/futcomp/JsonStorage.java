@@ -159,8 +159,8 @@ public class JsonStorage {
         Files.writeString(fileStatsPath, allTeamsStats.toString(4)); //will write string to json and save, the 4 will indent to format json
     }
 
-    public Team getStoredTeam(String teamName) throws IOException {
-        JSONObject allTeamsData = new JSONObject(readStoredFile(fileDataPath));
+    public Team getStoredTeam(String teamName) throws IOException, InterruptedException {
+        JSONObject allTeamsData = new JSONObject(checkDataFile());
         JSONObject teamData = allTeamsData.getJSONObject(teamName);
 
         return new Team(
@@ -171,8 +171,8 @@ public class JsonStorage {
                 teamData.getString("badgeUrl"));
     }
 
-    public TeamStats getStoredTeamStats(String teamName) throws IOException {
-        JSONObject allTeamsStats = new JSONObject(readStoredFile(fileStatsPath));
+    public TeamStats getStoredTeamStats(String teamName) throws IOException, InterruptedException {
+        JSONObject allTeamsStats = new JSONObject(checkStatsFile());
         JSONObject teamStats = allTeamsStats.getJSONObject(teamName);
 
         return new TeamStats(
@@ -181,8 +181,8 @@ public class JsonStorage {
                 teamStats.getString("eventID"));
     }
 
-    public EventStats getStoredEventStats(String teamName) throws IOException {
-        JSONObject allTeamsStats = new JSONObject(readStoredFile(fileStatsPath));
+    public EventStats getStoredEventStats(String teamName) throws IOException, InterruptedException {
+        JSONObject allTeamsStats = new JSONObject(checkStatsFile());
         JSONObject teamStats = allTeamsStats.getJSONObject(teamName);
 
         return new EventStats(
@@ -198,8 +198,8 @@ public class JsonStorage {
                 teamStats.getDouble("opponentExpectedGoals"));
     }
 
-    public ArrayList<String> getStoredTeamsForLeague(String league) throws IOException {
-        JSONObject allTeamsData = new JSONObject(readStoredFile(fileDataPath));
+    public ArrayList<String> getStoredTeamsForLeague(String league) throws IOException, InterruptedException {
+        JSONObject allTeamsData = new JSONObject(checkDataFile());
         ArrayList<String> leagueTeams = new ArrayList<>();
 
         for(int i = 0; i < teamNames.length; i++){
