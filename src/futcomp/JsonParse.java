@@ -26,6 +26,10 @@ public class JsonParse {
     public TeamStats teamStatsData(String jsonData, String teamID){
         JSONObject parse = new JSONObject(jsonData); 
 
+        if (!parse.has("results") || parse.isNull("results")) {
+            return new TeamStats(0, 0, "");
+        }
+
         JSONArray results = parse.getJSONArray("results");
         JSONObject result = getFirstFinishedEvent(results);
         
@@ -47,9 +51,12 @@ public class JsonParse {
             teamScore = homeScore;
             otherScore = awayScore;
         }
-        else {
+        else if (teamID.equals(result.getString("idAwayTeam"))) {
             teamScore = awayScore;
             otherScore = homeScore;
+        }
+        else {
+            throw new IllegalArgumentException("Team ID was not found in the selected event");
         }
         
         return new TeamStats(teamScore, otherScore, eventID);
@@ -66,8 +73,11 @@ public class JsonParse {
         if (teamID.equals(homeID)) {
             return awayID;
         }
-        else {
+        else if (teamID.equals(awayID)) {
             return homeID;
+        }
+        else {
+            throw new IllegalArgumentException("Team ID was not found in the selected event");
         }
     }
 
@@ -83,6 +93,14 @@ public class JsonParse {
 
     public EventStats teamEventStatsData(String jsonData, String teamId, String opponentId, boolean isHomeTeam) {
         JSONObject parse = new JSONObject(jsonData);
+
+        if (!parse.has("eventstats") || parse.isNull("eventstats")) {
+            return new EventStats("", teamId, opponentId, isHomeTeam,
+                    0, 0,
+                    0, 0,
+                    0, 0);
+        }
+
         JSONArray eventStats = parse.getJSONArray("eventstats");
 
         String eventId = "";
@@ -101,20 +119,18 @@ public class JsonParse {
             }
 
             String statName = currentStat.getString("strStat");
-            double teamValue = getTeamStatValue(currentStat, isHomeTeam);
-            double opponentValue = getTeamStatValue(currentStat, !isHomeTeam);
 
             if (statName.equals("Shots on Goal")) {
-                shotsOnGoal = teamValue;
-                opponentShotsOnGoal = opponentValue;
+                shotsOnGoal = getTeamStatValue(currentStat, isHomeTeam);
+                opponentShotsOnGoal = getTeamStatValue(currentStat, !isHomeTeam);
             }
             else if (statName.equals("Total Shots")) {
-                totalShots = teamValue;
-                opponentTotalShots = opponentValue;
+                totalShots = getTeamStatValue(currentStat, isHomeTeam);
+                opponentTotalShots = getTeamStatValue(currentStat, !isHomeTeam);
             }
-            else if (statName.equals("expected_goals")) {
-                expectedGoals = teamValue;
-                opponentExpectedGoals = opponentValue;
+            else if (statName.equals("expected_goals") || statName.equals("Expected Goals")) {
+                expectedGoals = getTeamStatValue(currentStat, isHomeTeam);
+                opponentExpectedGoals = getTeamStatValue(currentStat, !isHomeTeam);
             }
         }
 

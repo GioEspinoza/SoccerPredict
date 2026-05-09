@@ -39,21 +39,21 @@ public class EventStats {
         this.opponentExpectedGoals = opponentExpectedGoals;
     }
 
-    public String getEventId() {
-        return eventId;
-    }
+//    public String getEventId() {
+//        return eventId;
+//    }
 
-    public String getTeamId() {
-        return teamId;
-    }
+//    public String getTeamId() {
+//        return teamId;
+//    }
 
-    public String getOpponentId() {
-        return opponentId;
-    }
+//    public String getOpponentId() {
+//        return opponentId;
+//    }
 
-    public boolean isHomeTeam() {
-        return isHomeTeam;
-    }
+//    public boolean isHomeTeam() {
+//        return isHomeTeam;
+//    }
 
     public double getShotsOnGoal() {
         return shotsOnGoal;

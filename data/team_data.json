@@ -1,0 +1,279 @@
+{
+    "Manchester City": {
+        "teamName": "Manchester City",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png",
+        "teamID": "133613",
+        "league": "English Premier League",
+        "stadium": "Etihad Stadium",
+        "shortName": "MCI"
+    },
+    "Eintracht Frankfurt": {
+        "teamName": "Eintracht Frankfurt",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/rurwpy1473453269.png",
+        "teamID": "133814",
+        "league": "German Bundesliga",
+        "stadium": "Deutsche Bank Park",
+        "shortName": "SGE"
+    },
+    "Marseille": {
+        "teamName": "Marseille",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/uutsyt1473504764.png",
+        "teamID": "133707",
+        "league": "French Ligue 1",
+        "stadium": "Orange Vélodrome",
+        "shortName": "OLM"
+    },
+    "England": {
+        "teamName": "England",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/vf5ttc1726166739.png",
+        "teamID": "133914",
+        "stadium": "Wembley Stadium",
+        "shortName": "ENG"
+    },
+    "Lille": {
+        "teamName": "Lille",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/2giize1534005340.png",
+        "teamID": "133711",
+        "league": "French Ligue 1",
+        "stadium": "Decathlon Arena - Stade Pierre-Mauroy",
+        "shortName": "LIL"
+    },
+    "Portugal": {
+        "teamName": "Portugal",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/swqvpy1455466083.png",
+        "teamID": "133908",
+        "stadium": "Estádio Nacional do Jamor",
+        "shortName": "POR"
+    },
+    "Juventus": {
+        "teamName": "Juventus",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/uxf0gr1742983727.png",
+        "teamID": "133676",
+        "league": "Italian Serie A",
+        "stadium": "Allianz Stadium Turin",
+        "shortName": "JUV"
+    },
+    "Monaco": {
+        "teamName": "Monaco",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/exjf5l1678808044.png",
+        "teamID": "133823",
+        "league": "French Ligue 1",
+        "stadium": "Stade Louis II",
+        "shortName": "MON"
+    },
+    "Arsenal": {
+        "teamName": "Arsenal",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+        "teamID": "133604",
+        "league": "English Premier League",
+        "stadium": "Emirates Stadium",
+        "shortName": "ARS"
+    },
+    "Inter Milan": {
+        "teamName": "Inter Milan",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/ryhu6d1617113103.png",
+        "teamID": "133681",
+        "league": "Italian Serie A",
+        "stadium": "Stadio Giuseppe Meazza",
+        "shortName": "INT"
+    },
+    "Roma": {
+        "teamName": "Roma",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/jwro2s1760820674.png",
+        "teamID": "133682",
+        "league": "Italian Serie A",
+        "stadium": "Stadio Olimpico",
+        "shortName": "ROM"
+    },
+    "RB Leipzig": {
+        "teamName": "RB Leipzig",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/zjgapo1594244951.png",
+        "teamID": "134695",
+        "league": "German Bundesliga",
+        "stadium": "Leipzig Stadium",
+        "shortName": "RBL"
+    },
+    "Brazil": {
+        "teamName": "Brazil",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/jl6dip1726167280.png",
+        "teamID": "134496",
+        "stadium": "Estádio do Maracanã",
+        "shortName": "BRA"
+    },
+    "Chelsea": {
+        "teamName": "Chelsea",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/yvwvtu1448813215.png",
+        "teamID": "133610",
+        "league": "English Premier League",
+        "stadium": "Stamford Bridge",
+        "shortName": "CHE"
+    },
+    "France": {
+        "teamName": "France",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/p3n0z51726166851.png",
+        "teamID": "133913",
+        "stadium": "Stade de France",
+        "shortName": "FRA"
+    },
+    "Real Betis": {
+        "teamName": "Real Betis",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/2oqulv1663245386.png",
+        "teamID": "133722",
+        "league": "Spanish La Liga",
+        "stadium": "Estadio de La Cartuja",
+        "shortName": "BET"
+    },
+    "Argentina": {
+        "teamName": "Argentina",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/3zplhu1726167477.png",
+        "teamID": "134509",
+        "stadium": "Estadio Mâs Monumental",
+        "shortName": "ARG"
+    },
+    "USA": {
+        "teamName": "USA",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/21f0oi1597948195.png",
+        "teamID": "134514",
+        "stadium": "",
+        "shortName": "USA"
+    },
+    "Liverpool": {
+        "teamName": "Liverpool",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/kfaher1737969724.png",
+        "teamID": "133602",
+        "league": "English Premier League",
+        "stadium": "Anfield",
+        "shortName": "LIV"
+    },
+    "FC Barcelona": {
+        "teamName": "Barcelona",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/wq9sir1639406443.png",
+        "teamID": "133739",
+        "league": "Spanish La Liga",
+        "stadium": "Spotify Camp Nou",
+        "shortName": "FCB"
+    },
+    "Real Madrid": {
+        "teamName": "Real Madrid",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+        "teamID": "133738",
+        "league": "Spanish La Liga",
+        "stadium": "Estadio Santiago Bernabéu",
+        "shortName": "MAD"
+    },
+    "Bayer Leverkusen": {
+        "teamName": "Bayer Leverkusen",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/3x9k851726760113.png",
+        "teamID": "133666",
+        "league": "German Bundesliga",
+        "stadium": "BayArena",
+        "shortName": "B04"
+    },
+    "AC Milan": {
+        "teamName": "AC Milan",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/wvspur1448806617.png",
+        "teamID": "133667",
+        "league": "Italian Serie A",
+        "stadium": "Stadio Giuseppe Meazza",
+        "shortName": "MIL"
+    },
+    "Lyon": {
+        "teamName": "Lyon",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/blk9771656932845.png",
+        "teamID": "133713",
+        "league": "French Ligue 1",
+        "stadium": "Groupama Stadium",
+        "shortName": "LYO"
+    },
+    "Napoli": {
+        "teamName": "Napoli",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/l8qyxv1742982541.png",
+        "teamID": "133670",
+        "league": "Italian Serie A",
+        "stadium": "Stadio Diego Armando Maradona",
+        "shortName": "NAP"
+    },
+    "Atletico Madrid": {
+        "teamName": "Atlético Madrid",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/0ulh3q1719984315.png",
+        "teamID": "133729",
+        "league": "Spanish La Liga",
+        "stadium": "Riyadh Air Metropolitano",
+        "shortName": "ATM"
+    },
+    "Spain": {
+        "teamName": "Spain",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/ncgqyr1726166942.png",
+        "teamID": "133909",
+        "stadium": "",
+        "shortName": "SPA"
+    },
+    "Canada": {
+        "teamName": "Canada",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/2t631f1595154867.png",
+        "teamID": "140073",
+        "stadium": "",
+        "shortName": "CAN"
+    },
+    "Bayern Munich": {
+        "teamName": "Bayern Munich",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/01ogkh1716960412.png",
+        "teamID": "133664",
+        "league": "German Bundesliga",
+        "stadium": "Allianz Arena",
+        "shortName": "BAY"
+    },
+    "Borussia Dortmund": {
+        "teamName": "Borussia Dortmund",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/tqo8ge1716960353.png",
+        "teamID": "133650",
+        "league": "German Bundesliga",
+        "stadium": "Signal Iduna Park",
+        "shortName": "DOR"
+    },
+    "Paris SG": {
+        "teamName": "Paris SG",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/rwqrrq1473504808.png",
+        "teamID": "133714",
+        "league": "French Ligue 1",
+        "stadium": "Parc des Princes",
+        "shortName": "PSG"
+    },
+    "Italy": {
+        "teamName": "Italy",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/fxijcp1726167035.png",
+        "teamID": "133910",
+        "stadium": "Stadio Olimpico",
+        "shortName": "ITA"
+    },
+    "Mexico": {
+        "teamName": "Mexico",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/3rmosi1748525208.png",
+        "teamID": "134497",
+        "stadium": "Estadio Azteca",
+        "shortName": "MEX"
+    },
+    "Manchester United": {
+        "teamName": "Manchester United",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/xzqdr11517660252.png",
+        "teamID": "133612",
+        "league": "English Premier League",
+        "stadium": "Old Trafford",
+        "shortName": "MUN"
+    },
+    "Villarreal": {
+        "teamName": "Villarreal",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/vrypqy1473503073.png",
+        "teamID": "133740",
+        "league": "Spanish La Liga",
+        "stadium": "Estadio de la Cerámica",
+        "shortName": "VLR"
+    },
+    "Germany": {
+        "teamName": "Germany",
+        "badgeUrl": "https://r2.thesportsdb.com/images/media/team/badge/1xysi51726167152.png",
+        "teamID": "133907",
+        "stadium": "Olympiastadion Berlin",
+        "shortName": "GER"
+    }
+}

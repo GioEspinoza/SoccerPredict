@@ -15,10 +15,6 @@ public class Team {
     private String teamID;
     private String badgeUrl;
     
-    public Team(String teamName, String shortName, String stadium, String teamID){
-        this(teamName, shortName, stadium, teamID, "");
-        }
-
     public Team(String teamName, String shortName, String stadium, String teamID, String badgeUrl){
         this.teamName = teamName;
         this.shortName = shortName;

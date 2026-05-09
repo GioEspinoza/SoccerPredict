@@ -84,12 +84,12 @@ public class APITEST {
         TeamStats stats2 = parse.teamStatsData(statsJson2, teamData2.getTeamID());
         
         //hold winner of comparison in winner variable
-        winner = calc.predict(teamData1, stats1, teamData2, stats2);
+        //winner = calc.predict(teamData1, stats1, teamData2, stats2);
         
         
         //System.out.println(parse.teamData(jsonData));
         
-        System.out.println("Predicted Stronger Team: " + winner);
+        //System.out.println("Predicted Stronger Team: " + winner);
     }
 }
  ////////////////////////////////////////////////////////////////////////////////    NOTES     

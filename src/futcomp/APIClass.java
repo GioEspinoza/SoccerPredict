@@ -2,15 +2,17 @@ package futcomp;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
 import java.net.http.HttpRequest;
+import java.nio.charset.StandardCharsets;
 
 public class APIClass {
 
     public String getTeamJson(String teamName) throws IOException, InterruptedException {
         
-        String url = "https://www.thesportsdb.com/api/v1/json/REMOVED_API_KEY/searchteams.php?t=" + teamName;
+        String url = "https://www.thesportsdb.com/api/v1/json/REMOVED_API_KEY/searchteams.php?t=" + encodeUrlParameter(teamName);
         
         HttpClient client = HttpClient.newHttpClient();
         
@@ -23,6 +25,10 @@ public class APIClass {
         
         return response.body();
     }    
+
+    private String encodeUrlParameter(String parameter) {
+        return URLEncoder.encode(parameter, StandardCharsets.UTF_8);
+    }
 
     public String getStatsJson(String teamID) throws IOException, InterruptedException {
         
@@ -41,22 +47,22 @@ public class APIClass {
     
     }
 
-    public String getTeamJsonByID(String teamID) throws IOException, InterruptedException {
-
-        String url = "https://www.thesportsdb.com/api/v1/json/REMOVED_API_KEY/lookupteam.php?id=" + teamID;
-
-        HttpClient client = HttpClient.newHttpClient();
-
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .GET()
-                .build();
-
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-        return response.body();
-
-    }
+//    public String getTeamJsonByID(String teamID) throws IOException, InterruptedException {
+//
+//        String url = "https://www.thesportsdb.com/api/v1/json/REMOVED_API_KEY/lookupteam.php?id=" + teamID;
+//
+//        HttpClient client = HttpClient.newHttpClient();
+//
+//        HttpRequest request = HttpRequest.newBuilder()
+//                .uri(URI.create(url))
+//                .GET()
+//                .build();
+//
+//        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+//
+//        return response.body();
+//
+//    }
     public String getEventStatJson(String eventID) throws IOException, InterruptedException {
 
         String url = "https://www.thesportsdb.com/api/v1/json/REMOVED_API_KEY/lookupeventstats.php?id=" + eventID;
