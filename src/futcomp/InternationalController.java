@@ -243,7 +243,7 @@ public class InternationalController {
             return "This match is predicted to be close based on recent form.";
         }
         else {
-            return winner + " is predicted to have the stronger side because of recent points and goal difference.";
+            return winner + " is predicted to have the stronger side based off recent performance.";
         }
     }
 

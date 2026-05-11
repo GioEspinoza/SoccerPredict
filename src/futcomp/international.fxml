@@ -43,7 +43,7 @@
             <ImageView fx:id="teamTwoBadge" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: #475569; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20;" text="Back" />
+      <Button mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: #475569; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 9;" text="Back" />
    </children>
    <opaqueInsets>
       <Insets />

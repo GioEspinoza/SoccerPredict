@@ -242,7 +242,7 @@ public class LeagueController {
             return "This match is predicted to be close based on recent form.";
         }
         else {
-            return winner + " is predicted to have the stronger side based off recent pformance.";
+            return winner + " is predicted to have the stronger side based off recent performance.";
         }
     }
 
