@@ -91,16 +91,22 @@ src/futcomp/
 ### Configure NetBeans
 
 1. Clone the repository and open it as an existing NetBeans project.
-2. Open **Project Properties → Libraries**.
-3. Point the JavaFX module path to your local JavaFX SDK.
-4. Add the `org.json` JAR to the compile classpath.
-5. Confirm the run options include:
+2. Copy `.env.example` to `.env` and add your TheSportsDB API key:
+
+   ```dotenv
+   THESPORTSDB_API_KEY=replace_with_your_key
+   ```
+
+3. Open **Project Properties → Libraries**.
+4. Point the JavaFX module path to your local JavaFX SDK.
+5. Add the `org.json` JAR to the compile classpath.
+6. Confirm the run options include:
 
    ```text
    --module-path /path/to/javafx/lib --add-modules javafx.controls,javafx.fxml
    ```
 
-6. Run `futcomp.App` from NetBeans.
+7. Run `futcomp.App` from NetBeans.
 
 The checked-in NetBeans project currently contains developer-local library
 paths, so they must be updated for another workstation.
@@ -111,6 +117,8 @@ paths, so they must be updated for another workstation.
 - `data/teamStats_data.json` stores the latest retrieved match/event statistics.
 - The cache is refreshed through TheSportsDB and used by the prediction screens.
 - API coverage and event-stat availability vary by competition and subscription.
+- API credentials are loaded from `THESPORTSDB_API_KEY` or a local ignored
+  `.env` file and are never intended to be committed.
 
 ## Current limitations
 
