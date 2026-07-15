@@ -1,6 +1,21 @@
+# NetBeans build output and private workstation settings
 build/
 dist/
 nbproject/private/
+
+# Java artifacts
 *.class
 *.jar
 *.log
+hs_err_pid*
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local secrets
+.env
+.env.*
+!.env.example
